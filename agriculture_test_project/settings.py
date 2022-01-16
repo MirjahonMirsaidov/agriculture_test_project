@@ -166,5 +166,5 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 # gdal library path for working with geojson
-# GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal303'
-# GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
+GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal303'
+GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
