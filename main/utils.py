@@ -2,6 +2,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.core.mail import EmailMessage
 import threading
 
+DOMAIN = 'http://mirjahonmirsaidov.pythonanywhere.com'
+
 
 class EmailThread(threading.Thread):
 
@@ -21,7 +23,7 @@ def send_email(data):
 
 def send_email_verification(user):
     token = RefreshToken.for_user(user).access_token
-    absurl = 'http://127.0.0.1:8000/api/main/email-verify/' + "?token=" + str(token)
+    absurl = f'{DOMAIN}/api/main/email-verify/' + "?token=" + str(token)
     email_body = 'Hi! ' + \
                  'Use the link below to verify your email \n' + absurl
     data = {'email_body': email_body, 'to_email': user.email,
@@ -32,7 +34,7 @@ def send_email_verification(user):
 
 def send_change_password(user):
     token = RefreshToken.for_user(user).access_token
-    absurl = 'http://127.0.0.1:8000/api/main/change-password' + "?token=" + str(token)
+    absurl = f'{DOMAIN}api/main/change-password' + "?token=" + str(token)
     email_body = 'Hi! ' + \
                  'Use the link below to change your password \n' + absurl
     data = {'email_body': email_body, 'to_email': user.email,

@@ -58,7 +58,7 @@ class Location(models.Model):
     """
     A model which holds information about a particular location
     """
-    user = models.OneToOneField('User', on_delete=models.CASCADE)
+    user = models.OneToOneField('User', related_name='region', on_delete=models.CASCADE)
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
