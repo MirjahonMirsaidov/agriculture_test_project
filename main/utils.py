@@ -1,8 +1,12 @@
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.core.mail import EmailMessage
 import threading
+import environ
 
-DOMAIN = 'http://mirjahonmirsaidov.pythonanywhere.com'
+env = environ.Env()
+environ.Env.read_env()
+
+DOMAIN = env('DOMAIN')
 
 
 class EmailThread(threading.Thread):
